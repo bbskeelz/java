@@ -1,3 +1,4 @@
+package cake;
 public class BinarySearch{
 
 	public static int f(int[] in, int x){

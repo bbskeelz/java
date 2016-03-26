@@ -1,3 +1,5 @@
+package cake;
+
 public class RotationalString{
 	
 	public static int f(String[] in){

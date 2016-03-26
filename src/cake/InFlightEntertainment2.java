@@ -1,3 +1,5 @@
+package cake;
+
 public class InFlightEntertainment2{
 	
 	public static boolean f(int[] in, int duration){
