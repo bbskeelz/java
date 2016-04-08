@@ -5,7 +5,7 @@ public class nThFib{
 
 	public static HashMap<Integer, Integer> map = new HashMap<>();
 
-	public static int f(int n){
+	public static int f1(int n){
 	
 		if (n == 0) return 0;
 		if (n == 1) return 1;
@@ -16,6 +16,13 @@ public class nThFib{
 			return r;
 		}
 		return map.get(n);
+	}
+
+	public static int f(int n){
+		if (n <= 1)
+			return n;
+		else
+			return f(n-1) + f(n-2);
 	}
 
 	public static void main(String[] args){
