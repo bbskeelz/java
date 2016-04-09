@@ -6,33 +6,29 @@ import java.util.ArrayList;
 public class CakeThief{
 	//unbounded knapsack problem
 	
-
+	//return a list of cakes that constitutes the most value, within the weight capacity
 	public static List<Cake> f(Cake[] in, int c){
 		List<Cake> out = new ArrayList<Cake>();
-		List<List<Cake>> vCakes = new ArrayList<List<Cake>>();
-		vCakes.add(out); 
-		int[] vValues = new int[c+1];
+		int[] wValues = new int[c+1];
+		List<List<Cake>> wCakes = new ArrayList<List<Cake>>();
 		
-		for (int w = 1; w <=c; w++){
+		for (int w = 0; w <= c; w++){
 			List<Cake> cakes = new ArrayList<Cake>();
-			int value = 0;
 			for (Cake cake : in){
-				if (cake.weight > w) continue;
-				else{
-					//verify using this cake would increase value;
-					if (cake.value + vValues[c-cake.weight] > value){
-						value = cake.value;
-						cakes.clear(); 
-						cakes.addAll(vCakes.get(w-1));
-						cakes.add(cake);
-					}
+				if (cake.weight > w){
+					continue;
+				}
+				if (cake.value + wValues[w-cake.weight] > wValues[w]){
+					wValues[w] = wValues[cake.weight] + wValues[w-cake.weight];
+					cakes.clear();
+					cakes.add(cake);
+					cakes.addAll(wCakes.get(w-cake.weight));
 				}
 			}
-			vCakes.add(cakes);
-			vValues[w] = value;
-			out = cakes;	
+			wCakes.add(cakes);
 		}
-		return out;
+		return wCakes.get(c);
+		
 	}
 	
 	public static void main(String[] args){
@@ -45,7 +41,7 @@ public class CakeThief{
 
 		Cake[] in = new Cake[]{c1, c2, c3, c4};	
 		
-		System.out.println(f(in, 2));
+		System.out.println(f(in, 1));
 		
 	}
 }
