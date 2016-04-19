@@ -20,8 +20,8 @@ public class BinarySearch{
 	}
 
 	public static void main(String[] args){
-		int[] in = new int[]{1,2,3,4,5,6,7,8};
-		System.out.println(f(in, 7));
+		int[] in = new int[]{1,2,3,4,5};
+		System.out.println(f(in, 5));
 		System.out.println(f(in, -1));
 	}
 
