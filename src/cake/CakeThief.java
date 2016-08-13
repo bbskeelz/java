@@ -41,7 +41,7 @@ public class CakeThief{
 
 		Cake[] in = new Cake[]{c1, c2, c3, c4};	
 		
-		System.out.println(f(in, 1));
+		System.out.println(f(in, 4));
 		
 	}
 }
